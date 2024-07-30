@@ -17,10 +17,47 @@
     align-items: center;
 }
 
+.header-icons-show {
+    display: flex;
+    align-items: center;
+}
+
 .header-icon {
     width: 40px;
     height: 40px;
     margin-right: 10px;
     border-radius: 20px;
     background-color: red;
+}
+
+.header-search {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.header-burger {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .header-search {
+        display: none;
+    }
+
+    .header-icons {
+        display: none;
+    }
+
+    .header-icon{
+        margin: 16px;
+    }
+
+    .header-burger {
+        display: block;
+    }
+
+    .header-icons-show {
+        display: block;
+    }
+
 }

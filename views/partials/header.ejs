@@ -1,14 +1,31 @@
 <nav class="header">
+  <!-- threadit logo -->
   <div class="threadit-logo">
     <div class="header-icon"></div>
     <h1>threadit</h1>
   </div>
-  <input type="text" />
-  <div class="header-icons">
+
+  <!-- Search bar -->
+  <input type="text" class="header-search" />
+
+  <!--Right Icons  -->
+  <div class="header-icons" id="header-icons">
     <div class="header-icon"></div>
     <div class="header-icon"></div>
     <div class="header-icon"></div>
     <div class="header-icon"></div>
     <div class="header-icon"></div>
   </div>
+
+  <button class="header-burger" onclick="toggleBurger()"></button>
 </nav>
+
+<script>
+  const toggleBurger = () => {
+    const x = document.getElementById("header-icons");
+    console.log(x);
+
+    x.classList.toggle("header-icons");
+    x.classList.toggle("header-icons-show");
+  };
+</script>
