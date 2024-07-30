@@ -6,7 +6,7 @@
   </div>
 
   <!-- Search bar -->
-  <input type="text" class="header-search" />
+  <input type="text" class="header-search" id="header-search" />
 
   <!--Right Icons  -->
   <div class="header-icons" id="header-icons">
@@ -22,10 +22,9 @@
 
 <script>
   const toggleBurger = () => {
-    const x = document.getElementById("header-icons");
-    console.log(x);
-
-    x.classList.toggle("header-icons");
-    x.classList.toggle("header-icons-show");
+    const rightIcons = document.getElementById("header-icons");
+    const searchBar = document.getElementById("header-search");
+    rightIcons.classList.toggle("show");
+    searchBar.classList.toggle("show");
   };
 </script>

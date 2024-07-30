@@ -17,11 +17,6 @@
     align-items: center;
 }
 
-.header-icons-show {
-    display: flex;
-    align-items: center;
-}
-
 .header-icon {
     width: 40px;
     height: 40px;
@@ -40,24 +35,28 @@
 }
 
 @media screen and (max-width: 768px) {
-    .header-search {
-        display: none;
-    }
 
+    .header-search,
     .header-icons {
         display: none;
     }
 
-    .header-icon{
+    .header-burger,
+    .header-search.show,
+    .header-icons.show {
+        display: block;
+    }
+
+    .header-icon {
         margin: 16px;
     }
 
-    .header-burger {
-        display: block;
-    }
-
-    .header-icons-show {
-        display: block;
+    .header-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        border-radius: 10px;
+        background-color: red;
     }
 
 }
