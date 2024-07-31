@@ -1,0 +1,38 @@
+.posts {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.post {
+    padding: 16px;
+    width: 50%;
+}
+
+.post-user-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    background-color: rgb(221, 131, 131);
+}
+
+.post-user-icon,
+.post-user-name,
+.post-time {
+    margin-right: 8px;
+}
+
+.post-user {
+    display: flex;
+    align-items: center;
+    padding-top: 8px;
+    color: black;
+    text-decoration: none;
+}
+
+
+.post-title,
+.post-text {
+    margin: 0;
+}
