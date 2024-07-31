@@ -12,15 +12,9 @@ app.use(express.static(path.join(__dirname, "public")));
 // Routes
 app.get("/", async (req, res) => {
   try {
-    const result = await Post.findAll();
+    const result = await Post.findAll({ include: User });
     const posts = result.map((post) => post.toJSON());
-
-    for (const post of posts) {
-      const r = await User.findByPk(post.userId);
-      const person = r.toJSON();
-      post.user = person.name;
-    }
-
+    console.log(posts);
     res.render("pages/index", { posts: posts });
   } catch (error) {
     console.error(error);
