@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-const { User, Post } = require("./models");
+const { User, Post } = require("./database/models");
 
 const app = express();
 const port = 3000;
@@ -19,6 +19,10 @@ app.get("/", async (req, res) => {
   } catch (error) {
     console.error(error);
   }
+});
+
+app.get("/login", (req, res) => {
+  res.render("pages/login");
 });
 
 app.listen(port, () => {
