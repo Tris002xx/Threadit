@@ -3,6 +3,12 @@ body {
     padding: 0;
 }
 
+a,
+a:visited {
+    text-decoration: none;
+    color: white;
+}
+
 p,
 h2 {
     margin: 0;

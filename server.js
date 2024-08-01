@@ -1,13 +1,18 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const path = require("path");
+const dotenv = require("dotenv");
+dotenv.config();
+
 const { User, Post } = require("./database/models");
 
+const port = process.env.PORT
 const app = express();
-const port = 3000;
 
 // Config
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
 app.get("/", async (req, res) => {
