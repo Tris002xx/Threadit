@@ -8,4 +8,4 @@ Node.js, Express, ejs, sequelizer
 
 # How to run
 
-'npm start'
+`npm start`
