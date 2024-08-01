@@ -2,7 +2,6 @@ const { User } = require("../database/models");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-// auth sign up
 const registerUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -27,10 +26,8 @@ const registerUser = async (req, res) => {
   }
 };
 
-// auth log in
 const signInUser = async (req, res) => {
   try {
-    console.log(req.body);
     const { email, password } = req.body;
     const user = await User.findOne({
       where: { email },
@@ -57,7 +54,6 @@ const signInUser = async (req, res) => {
       accessToken: token,
     });
   } catch (err) {
-    console.log(err);
     return res.status(500).send("Sign in error");
   }
 };

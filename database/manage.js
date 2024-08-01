@@ -1,6 +1,6 @@
 const { User, Post } = require("./models");
 const { sequelize } = require("./db");
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcrypt");
 
 const createInstances = async () => {
   try {
@@ -11,7 +11,7 @@ const createInstances = async () => {
       username: "tris002xx",
       password: await bcrypt.hash("Password", 15),
       name: "Tristan James Torres",
-      email: "tristanjames3131@gmail.com"
+      email: "tristanjames3131@gmail.com",
     });
 
     const firstPost = await Post.create({
@@ -29,22 +29,4 @@ const createInstances = async () => {
     console.error("Error creating instances:", error);
   }
 };
-
-// const getUser = (post) => {
-  
-// };
-
 createInstances();
-// // Create a new user
-// const user = await User.create({
-//   username: "john_doe",
-//   password: "password123",
-//   name: "John Doe",
-// });
-
-// // Create a new post and associate it with the user
-// const post = await Post.create({
-//   title: "My First Post",
-//   text: "Hello, world!",
-//   userId: user.id, // Associate the post with the user by setting the userId
-// });
