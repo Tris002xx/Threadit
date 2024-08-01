@@ -3,10 +3,18 @@ const router = express.Router();
 
 // Middleware
 const { registerUser } = require("../controllers/registerUser");
+const isAuthenticated = require("../controllers/isAuthenticated");
 
 // Routes
 router.get("/", (req, res) => {
-  res.render("pages/signup");
+  if (isAuthenticated(req)) {
+    // res.render("pages/signup", { user: req.user });
+    res.redirect("/")
+    console.log("Logged In");
+  } else {
+    res.render("pages/signup", { user: false });
+    console.log("Not logged in");
+  }
 });
 
 router.post("/create", registerUser);

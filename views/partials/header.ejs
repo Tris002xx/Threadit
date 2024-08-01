@@ -10,11 +10,15 @@
 
   <!--Right Icons  -->
   <div class="header-icons" id="header-icons">
+    <% if (user) {%>
     <div class="header-icon"><a href="/create">Create</a></div>
     <div class="header-icon">Profile</div>
+    <%};%>
     <div class="header-icon">Settings</div>
+    <% if (!user) {%>
     <div class="header-icon"><a href="/login">Log In</a></div>
     <div class="header-icon"><a href="/signup">Sign Up</a></div>
+    <%};%>
   </div>
 
   <button class="header-burger" onclick="toggleBurger()"></button>

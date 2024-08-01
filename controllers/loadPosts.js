@@ -6,10 +6,10 @@ const loadPosts = async (req, res) => {
     const result = await Post.findAll({ include: User });
     const posts = result.map((post) => post.toJSON());
     if (isAuthenticated(req)) {
-      res.send(200);
+      res.render("pages/index", { posts: posts, user: req.user });
       console.log("Logged In");
     } else {
-      res.render("pages/index", { posts: posts });
+      res.render("pages/index", { posts: posts, user: false });
       console.log("Not logged in");
     }
   } catch (error) {
