@@ -14,7 +14,6 @@ const renderCreate = (req, res) => {
 const processCreate = async (req, res) => {
   try {
     const { title, text } = req.body;
-    // Check if the email exists
     const userExists = req.user.id;
     await Post.create({
       title,

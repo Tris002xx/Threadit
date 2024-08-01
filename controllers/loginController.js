@@ -17,4 +17,8 @@ const authenticateLogin = passport.authenticate("local", {
   failureMessage: true,
 });
 
-module.exports = { renderLogin, authenticateLogin };
+const redirect = (req, res) => {
+  res.redirect("/");
+};
+
+module.exports = { renderLogin, authenticateLogin, redirect };

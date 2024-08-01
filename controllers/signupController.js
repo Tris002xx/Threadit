@@ -1,5 +1,16 @@
+const isAuthenticated = require("../controllers/isAuthenticated");
 const { User } = require("../database/models");
 const bcrypt = require("bcrypt");
+
+const renderSignup = (req, res) => {
+  if (isAuthenticated(req)) {
+    res.redirect("/");
+    console.log("Logged In");
+  } else {
+    res.render("pages/signup", { user: false });
+    console.log("Not logged in");
+  }
+};
 
 const registerUser = async (req, res) => {
   try {
@@ -27,4 +38,4 @@ const registerUser = async (req, res) => {
   }
 };
 
-module.exports = { registerUser };
+module.exports = { renderSignup, registerUser };

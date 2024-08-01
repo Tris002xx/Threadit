@@ -5,13 +5,12 @@ const router = express.Router();
 const {
   renderLogin,
   authenticateLogin,
+  redirect,
 } = require("../controllers/loginController");
 
 // Routes
 router.get("/", renderLogin);
+router.post("/password", authenticateLogin, redirect);
 
-router.post("/password", authenticateLogin, (req, res) => {
-  res.redirect("/");
-});
 
 module.exports = router;
