@@ -20,7 +20,7 @@ const registerUser = async (req, res) => {
       name,
       password: await bcrypt.hash(password, 15),
     });
-    return res.status(200).send("Registration successful");
+    return res.redirect("/");
   } catch (err) {
     console.log(err);
     return res.status(500).send("Error in registering user");

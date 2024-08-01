@@ -12,7 +12,7 @@
   <div class="header-icons" id="header-icons">
     <% if (user) {%>
     <div class="header-icon"><a href="/create">Create</a></div>
-    <div class="header-icon">Profile</div>
+    <div class="header-icon"><%=user.username%></div>
     <%};%>
     <div class="header-icon">Settings</div>
     <% if (!user) {%>

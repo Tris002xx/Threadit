@@ -1,7 +1,7 @@
 const { User, Post } = require("../database/models");
 const isAuthenticated = require("./isAuthenticated");
 
-const loadPosts = async (req, res) => {
+const renderPosts = async (req, res) => {
   try {
     const result = await Post.findAll({ include: User });
     const posts = result.map((post) => post.toJSON());
@@ -17,4 +17,4 @@ const loadPosts = async (req, res) => {
   }
 };
 
-module.exports = { loadPosts };
+module.exports = renderPosts;

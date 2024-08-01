@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-// Middleware
+// Controllers
 const { registerUser } = require("../controllers/registerUser");
 const isAuthenticated = require("../controllers/isAuthenticated");
 
