@@ -16,10 +16,12 @@ app.use(express.static(path.join(__dirname, "views")));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
-const main = require("./routes/main");
+const main = require("./routes");
 app.use("/", main);
 const login = require("./routes/login");
 app.use("/login", login);
+const signup = require("./routes/signup");
+app.use("/signup", signup);
 
 // App listener
 app.listen(port, () => {

@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 
 const registerUser = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { email, username, name, password } = req.body;
     // Check if the email exists
     const userExists = await User.findOne({
       where: { email },
@@ -15,12 +15,14 @@ const registerUser = async (req, res) => {
     }
 
     await User.create({
-      name,
       email,
+      username,
+      name,
       password: await bcrypt.hash(password, 15),
     });
     return res.status(200).send("Registration successful");
   } catch (err) {
+    console.log(err);
     return res.status(500).send("Error in registering user");
   }
 };

@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+
 const passport = require("passport");
 const session = require("express-session");
 
@@ -10,15 +11,11 @@ router.use(
 router.use(passport.initialize());
 router.use(passport.session());
 
-// Controllers
-const { registerUser } = require("../controllers/auth");
-
 // Routes
-router.get("/", (req, res, next) => {
+router.get("/", (req, res) => {
   res.render("pages/login");
 });
 
-// Passport Routes
 router.post(
   "/password",
   passport.authenticate("local", {
