@@ -4,6 +4,7 @@ const { sequelize } = require("./db");
 const User = sequelize.define("user", {
   username: DataTypes.TEXT,
   password: DataTypes.TEXT,
+  email: DataTypes.TEXT,
   name: DataTypes.TEXT,
 });
 

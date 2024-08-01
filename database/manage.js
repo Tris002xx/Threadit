@@ -1,5 +1,6 @@
 const { User, Post } = require("./models");
 const { sequelize } = require("./db");
+const bcrypt = require("bcrypt")
 
 const createInstances = async () => {
   try {
@@ -8,8 +9,9 @@ const createInstances = async () => {
 
     const tristan = await User.create({
       username: "tris002xx",
-      password: "Password",
+      password: await bcrypt.hash("Password", 15),
       name: "Tristan James Torres",
+      email: "tristanjames3131@gmail.com"
     });
 
     const firstPost = await Post.create({
