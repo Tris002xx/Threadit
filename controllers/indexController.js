@@ -17,4 +17,4 @@ const renderPosts = async (req, res) => {
   }
 };
 
-module.exports = renderPosts;
+module.exports = { renderPosts };
