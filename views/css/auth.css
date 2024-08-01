@@ -1,0 +1,30 @@
+.signin-form {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.signin-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.signin-subheading {
+    font-size: 1.5rem;
+    font-weight: 100;
+    margin-bottom: 16px;
+}
+
+.signin-textboxes {
+    display: flex;
+    flex-direction: column;
+}
+
+.signin-input {
+    margin-bottom: 16px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

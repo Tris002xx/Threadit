@@ -1,7 +1,21 @@
-<form action="/login" method="post">
-  <h1>Sign In</h1>
-  <input id="email" name="email" type="text" />
-  <input id="password" name="password" type="text" />
-  <button type="submit">Sign In</button>
+<form action="/login" method="post" class="signin-form">
+  <h1 class="signin-heading">Sign In</h1>
+  <p class="signin-subheading">Sign in to your account</p>
+  <div class="signin-textboxes">
+    <input
+      id="email"
+      name="email"
+      type="text"
+      class="signin-input"
+      placeholder="Email"
+    />
+    <input
+      id="password"
+      name="password"
+      type="password"
+      class="signin-input"
+      placeholder="Password"
+    />
+  </div>
+  <button type="submit" class="signin-button">Sign In</button>
 </form>
-
