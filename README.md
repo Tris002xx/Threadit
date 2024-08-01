@@ -9,3 +9,9 @@ Node.js, Express, ejs, sequelizer, Passport
 # How to run
 
 `npm start`
+
+# Demo
+## Login Account
+
+- ### Email: john12@gmail.com
+- ### Password: Password

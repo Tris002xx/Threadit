@@ -13,6 +13,12 @@ const createInstances = async () => {
       name: "Tristan James Torres",
       email: "tristanjames3131@gmail.com",
     });
+    const john = await User.create({
+      username: "john12",
+      password: await bcrypt.hash("Password", 15),
+      name: "John Doe",
+      email: "john12@gmail.com",
+    });
 
     const firstPost = await Post.create({
       title: "Whats your first bad experience after getting a driving license?",
