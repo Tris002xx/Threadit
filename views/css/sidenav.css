@@ -32,3 +32,42 @@
 br {
     background-color: black;
 }
+
+
+@media screen and (max-width: 768px) {
+    .sidenav-subsection {
+        display: flex;
+        flex-direction: column;
+        padding: 8px;
+    }
+
+
+    .sidenav-title,
+    .sidenav-item>p {
+        font-size: smaller;
+        margin: 0;
+
+    }
+
+    .sidenav-item {
+        display: flex;
+        align-items: center;
+        padding-top: 4px;
+        color: black;
+        text-decoration: none;
+    }
+
+    .sidenav-item-icon {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        margin-right: 2px;
+        border-radius: 4px;
+        background-color: rgb(221, 131, 131);
+
+    }
+
+    br {
+        background-color: black;
+    }
+}

@@ -24,7 +24,7 @@
     margin-right: 10px;
     border-radius: 20px;
     /* background-color: red; */
-    background: #ea8a8a; 
+    background: #ea8a8a;
 }
 
 .header-search {
@@ -50,7 +50,12 @@
     }
 
     .header-icon {
-        margin: 16px;
+        margin: 8px;
+
+    }
+
+    .header-title {
+        font-size: x-small;
     }
 
     .header-icon {
@@ -59,7 +64,7 @@
         margin-right: 5px;
         border-radius: 10px;
         /* background-color: red; */
-        background: #ea8a8a; 
+        background: #ea8a8a;
     }
 
 }

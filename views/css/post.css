@@ -47,3 +47,57 @@
     font-family: "Montserrat", sans-serif;
     font-weight: 450;
 }
+
+@media screen and (max-width: 768px) {
+    .posts {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-left: 8px;
+    }
+
+    .post {
+        padding: 8px;
+        width: 280px;
+        border-bottom: 4px #685454 solid;
+    }
+
+    .post-user {
+        display: flex;
+        align-items: center;
+        padding-top: 4px;
+        font-family: "Josefin Sans", sans-serif;
+        font-size: xx-small;
+        color: black;
+        text-decoration: none;
+        margin-bottom: 4px;
+    }
+
+    .post-user-icon {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 4px;
+        background-color: rgb(221, 131, 131);
+    }
+
+    .post-user-icon,
+    .post-user-name,
+    .post-time {
+        margin-right: 8px;
+    }
+
+
+    .post-title {
+        font-size: x-small;
+        font-family: "Josefin Sans", sans-serif;
+        margin-bottom: 4px;
+    }
+
+    .post-text {
+        font-size: xx-small;
+        margin-bottom: 4px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 450;
+    }
+}
