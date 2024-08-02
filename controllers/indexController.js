@@ -1,44 +1,9 @@
 const { User, Post } = require("../database/models");
 const isAuthenticated = require("./isAuthenticated");
 
-const findTimeDifference = (starting, now) => {
-  let startingHour = parseInt(starting.split(":")[0]);
-  let startingMin = parseInt(starting.split(":")[1]);
-
-  let nowHour = parseInt(now.split(":")[0]);
-  let nowMin = parseInt(now.split(":")[1]);
-
-  if (nowMin < startingMin) {
-    nowHour -= 1;
-    nowMin += 60;
-  }
-
-  const timePassed = `${nowHour - startingHour}:${nowMin - startingMin}`;
-  console.log(timePassed);
-  return timePassed;
-};
-
-const currentTime = () => {
-  const currentTime = new Date().toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-  const [time, period] = currentTime.split(" ");
-  const [hour, minute] = time.split(":");
-  let formattedHour = parseInt(hour);
-  if (period === "PM") {
-    formattedHour += 12;
-  }
-
-  return `${formattedHour}:${minute}`;
-};
-
-const convertDateFormat = (dateToFormat) => {
-  const timeToFormat = dateToFormat.split(" ")[4];
-  const timeHour = timeToFormat.split(":")[0];
-  const timeMin = timeToFormat.split(":")[1];
-  return `${timeHour}:${timeMin}`;
-};
+const { findTimeDifference } = require("./helpers/findTimeDifference");
+const { convertDateFormat } = require("./helpers/convertDateFormat");
+const { currentTime } = require("./helpers/currentTime");
 
 const renderPosts = async (req, res) => {
   try {
