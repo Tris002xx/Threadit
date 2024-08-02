@@ -7,13 +7,16 @@
 
 .post {
     padding: 16px;
-    width: 50%;
+    width: 680px;
+    border-bottom: 4px #685454 solid;
 }
 
 .post-user {
     display: flex;
     align-items: center;
     padding-top: 8px;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: small;
     color: black;
     text-decoration: none;
     margin-bottom: 8px;
@@ -34,9 +37,13 @@
 }
 
 .post-title {
+    font-family: "Josefin Sans", sans-serif;
     margin-bottom: 8px;
 }
 
 .post-text {
+    font-size: large;
     margin-bottom: 8px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 450;
 }

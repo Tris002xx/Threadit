@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    background: #f2f2f2;
 }
 
 a,
@@ -13,4 +14,20 @@ p,
 h2 {
     margin: 0;
     padding: 0;
+}
+
+.first-color {
+    background: #f2f2f2;
+}
+
+.second-color {
+    background: #ebd5d5;
+}
+
+.third-color {
+    background: #ea8a8a;
+}
+
+.fourth-color {
+    background: #685454;
 }
