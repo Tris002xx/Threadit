@@ -1,8 +1,5 @@
 const isAuthenticated = (req) => {
-  if (!req.user) {
-    return false;
-  }
-  return true;
+  return req.user ? true : false;
 };
 
 module.exports = isAuthenticated;
