@@ -11,7 +11,7 @@ const findTimeDifference = (starting, now) => {
   }
 
   const timePassed = `${nowHour - startingHour}:${nowMin - startingMin}`;
-  console.log(timePassed);
+  // console.log(timePassed);
   return timePassed;
 };
 

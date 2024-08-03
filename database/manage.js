@@ -21,8 +21,9 @@ const createInstances = async () => {
     });
 
     const firstPost = await Post.create({
-      title: "Whats your first bad experience after getting a driving license?",
-      text: "So I just got my license yesterday and I went driving around my place to get a feeling of it. It all went smooth until I accidentally hit someone side mirror who park on the side. The owner didnt ask for much and I thank them for that but my self esteem do went down after that. My skill kinda drop as I feel like I will hit something again. So can somebody tell a stories after they got their license so I can feel like its normal to do some stupid stuff first and probably use as my lesson for future driving.",
+      title:
+        "Wisdom teeth removal. Only have $500 worth of coverage so would have to pay $2500 out of pocket. what are my options?",
+      text: "I went to see my dentist today and she strongly recommended getting my wisdom teeth removed since they are very difficult to get to and are at risk of getting cavities and other things since they r only half erupted. how can i possibly get them removed without having to pay out of pocket? are there any programs? or clinics? i feel extremely helpless lol",
       userId: tristan.id,
     });
 
