@@ -4,6 +4,7 @@ const isAuthenticated = require("./isAuthenticated");
 const { findTimeDifference } = require("./helpers/findTimeDifference");
 const { convertDateFormat } = require("./helpers/convertDateFormat");
 const { currentTime } = require("./helpers/currentTime");
+const { hourConverter } = require("./helpers/hourConverter");
 
 const renderPosts = async (req, res) => {
   try {
@@ -11,45 +12,52 @@ const renderPosts = async (req, res) => {
     const posts = result.map((post) => post.toJSON());
 
     for (let post of posts) {
+      let formattedTimePassed = ``;
+      let unitTime = ``;
       const createdTime = convertDateFormat(`${post.createdAt}`);
       const nowTime = currentTime();
       const timePassed = findTimeDifference(createdTime, nowTime);
-      let formattedTimePassed = ``;
-      let unitTime = ``;
+      const timePassedinHour = parseInt(timePassed.split(":")[0]);
+      const timePassedinMin = parseInt(timePassed.split(":")[1]);
+      const hoursInDay = 24;
+      const hoursInWeek = 168;
+      const hoursInMonth = 730;
+      const hoursInYear = 8760;
 
-      // If no hour has passed
-      if (timePassed.split(":")[0] === `0`) {
-        formattedTimePassed = parseInt(timePassed.split(":")[1]);
-        if (formattedTimePassed === 1) {
-          unitTime = "min";
-        } else {
-          unitTime = "mins";
-        }
+      // In minutes
+      if (timePassedinHour === 0) {
+        formattedTimePassed = timePassedinMin;
+        unitTime = formattedTimePassed === 1 ? "min" : "mins";
       }
 
-      // if an hour has passed within the same day
-      if (
-        timePassed[0] > `0` ||
-        (timePassed[0] <= "2" && timePassed[1] <= "4")
-      ) {
-        formattedTimePassed = parseInt(timePassed.split(":")[0]);
-        if (formattedTimePassed === 1) {
-          unitTime = "hr";
-        } else {
-          unitTime = "hrs";
-        }
+      // In hours
+      if (timePassedinHour > 0) {
+        formattedTimePassed = timePassedinHour;
+        unitTime = formattedTimePassed === 1 ? "hr" : "hrs";
       }
 
-      // if more than a day
-      if (timePassed[0] > "2" && timePassed[1] > "4") {
-        formattedTimePassed = (
-          parseInt(`${timePassed[0]}${timePassed[1]}`) / 24
-        ).toFixed(0);
-        if (formattedTimePassed === 1) {
-          unitTime = "day";
-        } else {
-          unitTime = "days";
-        }
+      // In days
+      if (timePassedinHour >= hoursInDay) {
+        formattedTimePassed = hourConverter(timePassedinHour, hoursInDay);
+        unitTime = formattedTimePassed === 1 ? "day" : "days";
+      }
+
+      // In weeks
+      if (timePassedinHour >= hoursInWeek) {
+        formattedTimePassed = hourConverter(timePassedinHour, hoursInMonth);
+        unitTime = formattedTimePassed === 1 ? "week" : "weeks";
+      }
+
+      // In months
+      if (timePassedinHour >= hoursInMonth) {
+        formattedTimePassed = hourConverter(timePassedinHour, hoursInMonth);
+        unitTime = formattedTimePassed === 1 ? "month" : "months";
+      }
+
+      // In years
+      if (timePassedinHour >= hoursInYear) {
+        formattedTimePassed = hourConverter(timePassedinHour, hoursInYear);
+        unitTime = formattedTimePassed === 1 ? "year" : "years";
       }
 
       post.createdAt = `${formattedTimePassed} ${unitTime}`;
