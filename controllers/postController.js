@@ -1,8 +1,7 @@
 const { User, Post } = require("../database/models");
-const isAuthenticated = require("./isAuthenticated");
-
 
 // Helpers
+const isAuthenticated = require("./helpers/isAuthenticated");
 const { convertDateFormat } = require("./helpers/convertDateFormat");
 
 const renderPost = async (req, res) => {

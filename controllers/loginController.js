@@ -1,9 +1,10 @@
-const isAuthenticated = require("./isAuthenticated");
 const passport = require("passport");
+
+// Helpers
+const isAuthenticated = require("./helpers/isAuthenticated");
 
 const renderLogin = (req, res) => {
   if (isAuthenticated(req)) {
-    // res.render("pages/login", { user: req.user });
     res.redirect("/");
     console.log("Logged In");
   } else {

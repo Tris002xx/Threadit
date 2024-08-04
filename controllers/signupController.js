@@ -1,6 +1,8 @@
-const isAuthenticated = require("../controllers/isAuthenticated");
 const { User } = require("../database/models");
 const bcrypt = require("bcrypt");
+
+// Helpers
+const isAuthenticated = require("./helpers/isAuthenticated");
 
 const renderSignup = (req, res) => {
   if (isAuthenticated(req)) {
@@ -24,7 +26,6 @@ const registerUser = async (req, res) => {
         .status(400)
         .send("Email is already associated with an account");
     }
-
     await User.create({
       email,
       username,

@@ -1,5 +1,7 @@
-const isAuthenticated = require("./isAuthenticated");
-const { User, Post } = require("../database/models");
+const { Post } = require("../database/models");
+
+// Helpers
+const isAuthenticated = require("./helpers/isAuthenticated");
 
 const renderCreate = (req, res) => {
   if (isAuthenticated(req)) {

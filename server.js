@@ -26,13 +26,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Debugging
-// app.use((req, res, next) => {
-//   console.log(req.session);
-//   // console.log("Time:", Date.now());
-//   next();
-// });
-
 // Routes
 const index = require("./routes/index");
 const login = require("./routes/login");
@@ -49,3 +42,10 @@ app.use("/create", create);
 app.listen(port, () => {
   console.log(`Threadit App listening on port http://localhost:${port}/`);
 });
+
+// Debugging
+// app.use((req, res, next) => {
+//   console.log(req.session);
+//   // console.log("Time:", Date.now());
+//   next();
+// });

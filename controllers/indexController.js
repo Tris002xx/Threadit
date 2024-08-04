@@ -1,7 +1,7 @@
 const { User, Post } = require("../database/models");
-const isAuthenticated = require("./isAuthenticated");
 
 // Helpers
+const isAuthenticated = require("./helpers/isAuthenticated");
 const { findTimeDifference } = require("./helpers/findTimeDifference");
 const { convertTimeFormat } = require("./helpers/convertTimeFormat");
 const { currentTime } = require("./helpers/currentTime");
