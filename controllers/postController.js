@@ -53,23 +53,27 @@ const renderPost = async (req, res) => {
 
 const addComment = async (req, res) => {
   try {
-    const { newComment } = req.body;
     const postId = req.params.postID;
+    const { newComment } = req.body;
 
-    const commentToAdd = {
-      text: newComment,
-      postId: postId,
-      userId: req.user.id,
-    };
-    await Comment.create(commentToAdd);
-
-    if (isAuthenticated(req)) {
-      res.redirect(`/api/post/${postId}`);
-      console.log("Logged In");
-    } else {
-      res.redirect(`/api/post/${postId}`);
+    // Can't comment if logged in!
+    if (!isAuthenticated(req)) {
+      res.redirect("/login");
       console.log("Not logged in");
+
+      // Proceed with POST request
+    } else if (newComment.trim().length !== 0) {
+      const commentToAdd = {
+        text: newComment,
+        postId: postId,
+        userId: req.user.id,
+      };
+      // Create comment instance
+      await Comment.create(commentToAdd);
+      console.log("Logged In");
     }
+
+    res.redirect(`/api/post/${postId}`);
   } catch (error) {
     console.error(error);
   }
