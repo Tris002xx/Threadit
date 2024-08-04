@@ -27,22 +27,25 @@ const createInstances = async () => {
       userId: tristan.id,
     });
 
-    const commentToFirstPost = await Comment.create({
-      text: "Dentists suck",
-      postId: firstPost.id,
-      userId: john.id,
-    });
+    // Comments
 
-    await Comment.create({
-      text: "Have you tried using one of those sleep apps? It sounds like you're waking up in the middle of REM cycles, which will not leave you feeling fully rested. You want to try and wake up at the end of REM sleep cycles to actually feel awake. There are a few apps out there that will give you good times to fall asleep and wake up for achieving this, it might help.",
-      postId: firstPost.id,
-      userId: john.id,
-    });
-    await Comment.create({
-      text: " don't know if you tend to drink in the evenings, but try to avoid it too late. And also drink water before bed. Alcohol absolutely interferes with your sleep and can leave you exhausted even if everything else was good.Same goes for caffeine, so avoid coffee, caffeinated teas, pops etc as well.",
-      postId: firstPost.id,
-        userId: john.id,
-    });
+    // await Comment.create({
+    //   text: "Dentists suck",
+    //   postId: firstPost.id,
+    //   userId: john.id,
+    // });
+
+    // await Comment.create({
+    //   text: "Have you tried using one of those sleep apps? It sounds like you're waking up in the middle of REM cycles, which will not leave you feeling fully rested. You want to try and wake up at the end of REM sleep cycles to actually feel awake. There are a few apps out there that will give you good times to fall asleep and wake up for achieving this, it might help.",
+    //   postId: firstPost.id,
+    //   userId: john.id,
+    // });
+
+    // await Comment.create({
+    //   text: " don't know if you tend to drink in the evenings, but try to avoid it too late. And also drink water before bed. Alcohol absolutely interferes with your sleep and can leave you exhausted even if everything else was good.Same goes for caffeine, so avoid coffee, caffeinated teas, pops etc as well.",
+    //   postId: firstPost.id,
+    //   userId: john.id,
+    // });
 
     const secondPost = await Post.create({
       title: "Where are the washrooms at Metrotown?",

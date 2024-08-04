@@ -11,3 +11,20 @@
     cursor: initial;
 
 }
+
+.addCommentBox {
+    display: block;
+    width: 95%;
+    overflow: hidden;
+    margin-top: 16px;
+    border-radius: 20px;
+    min-height: 40px;
+    line-height: 20px;
+    padding: 16px;
+
+}
+
+.commentBoxButton {
+    margin-top: 16px;
+    border-radius: 8px;
+}
