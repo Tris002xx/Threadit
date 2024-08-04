@@ -1,8 +1,9 @@
 const { User, Post } = require("../database/models");
 const isAuthenticated = require("./isAuthenticated");
 
+// Helpers
 const { findTimeDifference } = require("./helpers/findTimeDifference");
-const { convertDateFormat } = require("./helpers/convertDateFormat");
+const { convertTimeFormat } = require("./helpers/convertTimeFormat");
 const { currentTime } = require("./helpers/currentTime");
 const { hourConverter } = require("./helpers/hourConverter");
 
@@ -17,7 +18,7 @@ const renderPosts = async (req, res) => {
     for (let post of posts) {
       let formattedTimePassed = ``;
       let unitTime = ``;
-      const createdTime = convertDateFormat(`${post.createdAt}`);
+      const createdTime = convertTimeFormat(`${post.createdAt}`);
       const nowTime = currentTime();
       const timePassed = findTimeDifference(createdTime, nowTime);
       const timePassedinHour = parseInt(timePassed.split(":")[0]);

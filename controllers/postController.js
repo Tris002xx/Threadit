@@ -1,6 +1,10 @@
 const { User, Post } = require("../database/models");
 const isAuthenticated = require("./isAuthenticated");
 
+
+// Helpers
+const { convertDateFormat } = require("./helpers/convertDateFormat");
+
 const renderPost = async (req, res) => {
   try {
     const postID = req.params.postID;
@@ -11,11 +15,7 @@ const renderPost = async (req, res) => {
     const posts = result.map((post) => post.toJSON());
 
     for (let post of posts) {
-      const month = `${post.createdAt}`.split(" ")[1];
-      const day = `${post.createdAt}`.split(" ")[2];
-      const year = `${post.createdAt}`.split(" ")[3];
-      const createdAtDate = `${month} ${day} ${year}`;
-      post.createdAt = `${createdAtDate}`;
+      post.createdAt = convertDateFormat(post.createdAt);
     }
 
     if (isAuthenticated(req)) {
