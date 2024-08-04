@@ -1,4 +1,4 @@
-const { User, Post } = require("./models");
+const { User, Post, Comment } = require("./models");
 const { sequelize } = require("./db");
 const bcrypt = require("bcrypt");
 
@@ -25,6 +25,12 @@ const createInstances = async () => {
         "Wisdom teeth removal. Only have $500 worth of coverage so would have to pay $2500 out of pocket. what are my options?",
       text: "I went to see my dentist today and she strongly recommended getting my wisdom teeth removed since they are very difficult to get to and are at risk of getting cavities and other things since they r only half erupted. how can i possibly get them removed without having to pay out of pocket? are there any programs? or clinics? i feel extremely helpless lol",
       userId: tristan.id,
+    });
+
+    const commentToFirstPost = await Comment.create({
+      text: "Dentists suck",
+      postId: firstPost.id,
+      userId: john.id,
     });
 
     const secondPost = await Post.create({
