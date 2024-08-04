@@ -14,6 +14,8 @@ const renderPost = async (req, res) => {
         {
           model: Comment,
           include: [User],
+          separate: true,
+          order: [["createdAt", "DESC"]],
         },
       ],
     });

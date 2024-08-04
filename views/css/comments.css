@@ -15,11 +15,6 @@
     color: black;
 }
 
-/* .comment:hover {
-    background-color: rgb(199, 172, 172);
-    cursor: pointer;
-} */
-
 .comment-user {
     display: flex;
     align-items: center;
