@@ -8,7 +8,10 @@ const { hourConverter } = require("./helpers/hourConverter");
 
 const renderPosts = async (req, res) => {
   try {
-    const result = await Post.findAll({ include: User });
+    const result = await Post.findAll({
+      include: User,
+      order: [["createdAt", "DESC"]],
+    });
     const posts = result.map((post) => post.toJSON());
 
     for (let post of posts) {
