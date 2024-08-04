@@ -1,0 +1,25 @@
+<div class="posts">
+  <% posts.forEach((post)=>{%>
+  <a href="/api/post/<%=post.id%>" class="post-link">
+    <div class="post">
+      <div class="post-user">
+        <div class="post-user-icon"></div>
+        <div class="post-user-name">@<%=post.user.username%></div>
+        <div class="post-time"><%=`${post.createdAt} ago`%></div>
+      </div>
+
+      <div class="post-content">
+        <h2 class="post-title"><%=post.title%></h2>
+        <p class="post-text"><%=post.text%></p>
+      </div>
+
+      <div class="post-interactions">
+        <div class="post-user-icon"></div>
+        <div class="post-user-icon"></div>
+        <div class="post-user-icon"></div>
+        <div class="post-user-icon"></div>
+      </div>
+    </div>
+  </a>
+  <%});%>
+</div>
