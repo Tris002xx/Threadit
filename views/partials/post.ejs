@@ -19,5 +19,28 @@
       <div class="post-user-icon"></div>
     </div>
   </div>
+
+  <!-- Comments -->
+  <div class="comments">
+    <% post.comments.forEach((comment)=>{%>
+
+    <div class="comment">
+      <div class="comment-user">
+        <div class="comment-user-icon"></div>
+        <div class="comment-user-name">@ <%=comment.user.username%></div>
+      </div>
+
+      <div class="comment-content">
+        <h2 class="comment-text"><%=comment.text%></h2>
+      </div>
+
+      <div class="post-interactions">
+        <div class="post-user-icon"></div>
+        <div class="post-user-icon"></div>
+      </div>
+    </div>
+    <%});%>
+    <!-- End of Comments -->
+  </div>
   <%});%>
 </div>

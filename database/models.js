@@ -18,15 +18,15 @@ const Comment = sequelize.define("comment", {
 });
 
 // Associations
-User.hasMany(Post, { as: "posts" }); // User has many Posts
+User.hasMany(Post); // User has many Posts
 Post.belongsTo(User); // Post belongs to a User
 
-Post.hasMany(Comment, { as: "comments" }); // Post has many comments
+Post.hasMany(Comment); // Post has many comments
 Comment.belongsTo(Post); // Comment belongs to a Post
 
-User.hasMany(Comment, { as: "comments" }); // User has many comments
+User.hasMany(Comment); // User has many comments
 Comment.belongsTo(User); // Comment belongs to a User
 
-Comment.hasMany(Comment, { as: "comments" });
+Comment.hasMany(Comment);
 Comment.belongsTo(Comment); // Comment belongs to a Comment
 module.exports = { User, Post, Comment };

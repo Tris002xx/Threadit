@@ -1,4 +1,4 @@
-const { User, Post } = require("../database/models");
+const { User, Post, Comment } = require("../database/models");
 
 // Helpers
 const isAuthenticated = require("./helpers/isAuthenticated");
@@ -9,7 +9,13 @@ const renderPost = async (req, res) => {
     const postID = req.params.postID;
     const result = await Post.findAll({
       where: { id: postID },
-      include: User,
+      include: [
+        User,
+        {
+          model: Comment,
+          include: [User],
+        },
+      ],
     });
     const posts = result.map((post) => post.toJSON());
 
@@ -17,6 +23,7 @@ const renderPost = async (req, res) => {
       post.createdAt = convertDateFormat(post.createdAt);
     }
 
+    console.log(posts[0].comments);
     if (isAuthenticated(req)) {
       res.render("pages/currentpost", { posts: posts, user: req.user });
       console.log("Logged In");

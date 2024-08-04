@@ -5,3 +5,9 @@
     width: 100%;
     margin-left: 16px;
 }
+
+.post:hover {
+    background: #f2f2f2;
+    cursor: initial;
+
+}
