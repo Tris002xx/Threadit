@@ -11,25 +11,23 @@ const renderPost = async (req, res) => {
       where: { id: postID },
       include: User,
     });
-
     const resultComments = await Comment.findAll({
+      hierarchy: true,
       where: { postId: postID },
-      include: {
-        all: true,
-        nested: true,
-      },
+      include: [
+        {
+          model: User, // Specify the related model here
+          as: "user", // Optionally specify an alias if needed
+        },
+      ],
       order: [["createdAt", "DESC"]],
     });
-
-    const comments = resultComments.map((comment) => comment.toJSON());
-
     const posts = resultPost.map((post) => post.toJSON());
-
+    const comments = resultComments.map((comment) => comment.toJSON());
     for (let post of posts) {
       post.createdAt = convertDateFormat(post.createdAt);
     }
 
-    console.log(posts[0].comments);
     if (isAuthenticated(req)) {
       console.log(comments);
       res.render("pages/currentpost", {
@@ -58,10 +56,8 @@ const addComment = async (req, res) => {
 
     // Can't comment if logged in!
     if (!isAuthenticated(req)) {
-      res.redirect("/login");
       console.log("Not logged in");
-
-      // Proceed with POST request
+      return res.redirect("/login");
     } else if (newComment.trim().length !== 0) {
       const commentToAdd = {
         text: newComment,
@@ -72,10 +68,10 @@ const addComment = async (req, res) => {
       await Comment.create(commentToAdd);
       console.log("Logged In");
     }
-
-    res.redirect(`/api/post/${postId}`);
+    return res.redirect(`/api/post/${postId}`);
   } catch (error) {
     console.error(error);
+    return res.status(500).send("Internal Server Error");
   }
 };
 

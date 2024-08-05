@@ -1,19 +1,50 @@
-<div class="comments">
-  <% comments.forEach((comment)=>{%>
-  <div class="comment">
-    <div class="comment-user">
-      <div class="comment-user-icon"></div>
-      <div class="comment-user-name">@ <%=comment.user.username%></div>
-    </div>
-
-    <div class="comment-content">
-      <h2 class="comment-text"><%=comment.text%></h2>
-    </div>
-
-    <div class="post-interactions">
-      <div class="post-user-icon"></div>
-      <div class="post-user-icon"></div>
-    </div>
+<% function renderComment(comment) {%>
+<div class="comment">
+  <div class="comment-user">
+    <div class="comment-user-icon"></div>
+    <div class="comment-user-name">@ <%=comment.user && comment.user.username%></div>
   </div>
-  <%});%>
+
+  <div class="comment-content">
+    <h2 class="comment-text"><%=comment.text%></h2>
+  </div>
+
+  <div class="post-interactions">
+    <div class="post-user-icon"></div>
+    <div class="post-user-icon"></div>
+  </div>
+  <% if(comment.children){%>
+    <% comment.children.forEach((nestedComment)=>{%><%
+    renderComment(nestedComment) %> <%});%>
+    <%}%>
+  </div>
+  <% };%>
+
+  <div class="comments">
+    <% comments.forEach((comment)=>{%>
+      <% if(!comment.parentId){%> 
+    <div class="comment">
+      <div class="comment-user">
+        <div class="comment-user-icon"></div>
+        <div class="comment-user-name">@ <%=comment.user && comment.user.username%></div>
+      </div>
+  
+      <div class="comment-content">
+        <h2 class="comment-text"><%=comment.text%></h2>
+      </div>
+  
+      <div class="post-interactions">
+        <div class="post-user-icon"></div>
+        <div class="post-user-icon"></div>
+      </div>
+      <% if(comment.children){%>
+      <% comment.children.forEach((nestedComment)=>{%><%
+      renderComment(nestedComment) %> <%});%>
+      <%}%>
+    </div>
+
+    <%}%>
+    <%});%>
+  </div>
+  </div>
 </div>

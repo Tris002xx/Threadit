@@ -1,4 +1,5 @@
 const { Sequelize } = require("sequelize");
+require("sequelize-hierarchy-next")(Sequelize);
 
 const sequelize = new Sequelize({
   dialect: "sqlite",
