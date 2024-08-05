@@ -7,9 +7,8 @@ const { renderPost, addComment } = require("../controllers/postController");
 // Routes
 router.get("/:postID", renderPost);
 
-// Adding comment to post 
+// Adding comment to post
 router.post("/:postID", addComment);
-
 
 // Adding comment to comment
 

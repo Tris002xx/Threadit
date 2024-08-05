@@ -32,11 +32,13 @@ const login = require("./routes/login");
 const signup = require("./routes/signup");
 const create = require("./routes/create");
 const post = require("./routes/post");
+const comment = require("./routes/comment");
 app.use("/", index);
 app.use("/api/post", post);
 app.use("/login", login);
 app.use("/signup", signup);
 app.use("/create", create);
+app.use("/api/comment", comment);
 
 // App listener
 app.listen(port, () => {

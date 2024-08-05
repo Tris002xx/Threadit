@@ -28,44 +28,44 @@ const createInstances = async () => {
     });
 
     // Nested Comment Examples
-    const firstComment = await Comment.create({
-      text: "First Comment",
-      postId: firstPost.id,
-      userId: tristan.id,
-    });
-    const firstReply = await Comment.create({
-      text: "First Reply",
-      postId: firstPost.id,
-      userId: tristan.id,
-      parentId: firstComment.id,
-    });
+    // const firstComment = await Comment.create({
+    //   text: "First Comment",
+    //   postId: firstPost.id,
+    //   userId: tristan.id,
+    // });
+    // const firstReply = await Comment.create({
+    //   text: "First Reply",
+    //   postId: firstPost.id,
+    //   userId: tristan.id,
+    //   parentId: firstComment.id,
+    // });
 
-    const secondReply = await Comment.create({
-      text: "Second Reply",
-      postId: firstPost.id,
-      userId: tristan.id,
-      parentId: firstComment.id,
-    });
+    // const secondReply = await Comment.create({
+    //   text: "Second Reply",
+    //   postId: firstPost.id,
+    //   userId: tristan.id,
+    //   parentId: firstComment.id,
+    // });
 
-    const firstReplyTofirstReply = await Comment.create({
-      text: "First Reply to First Reply",
-      postId: firstPost.id,
-      userId: tristan.id,
-      parentId: firstReply.id,
-    });
+    // const firstReplyTofirstReply = await Comment.create({
+    //   text: "First Reply to First Reply",
+    //   postId: firstPost.id,
+    //   userId: tristan.id,
+    //   parentId: firstReply.id,
+    // });
 
-    const secondReplyTosecondReply = await Comment.create({
-      text: "Second Reply to First Reply",
-      postId: firstPost.id,
-      userId: tristan.id,
-      parentId: firstReply.id,
-    });
+    // const secondReplyTosecondReply = await Comment.create({
+    //   text: "Second Reply to First Reply",
+    //   postId: firstPost.id,
+    //   userId: tristan.id,
+    //   parentId: firstReply.id,
+    // });
 
-    const secondComment = await Comment.create({
-      text: "Second Comment",
-      postId: firstPost.id,
-      userId: tristan.id,
-    });
+    // const secondComment = await Comment.create({
+    //   text: "Second Comment",
+    //   postId: firstPost.id,
+    //   userId: tristan.id,
+    // });
 
     const secondPost = await Post.create({
       title: "Where are the washrooms at Metrotown?",
