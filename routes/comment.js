@@ -1,6 +1,3 @@
-const isAuthenticated = require("../controllers/helpers/isAuthenticated");
-const { User, Comment } = require("../database/models");
-
 const express = require("express");
 const router = express.Router();
 

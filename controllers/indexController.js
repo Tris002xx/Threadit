@@ -68,11 +68,11 @@ const renderPosts = async (req, res) => {
     }
 
     if (isAuthenticated(req)) {
-      res.render("pages/index", { posts: posts, user: req.user });
       console.log("Logged In");
+      return res.render("pages/index", { posts: posts, user: req.user });
     } else {
-      res.render("pages/index", { posts: posts, user: false });
       console.log("Not logged in");
+      return res.render("pages/index", { posts: posts, user: false });
     }
   } catch (error) {
     console.error(error);
