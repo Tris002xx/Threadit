@@ -9,17 +9,19 @@
     <h2 class="comment-text"><%=comment.text%></h2>
   </div>
 
-  <div class="post-interactions">
+  <div class="comment-interactions">
     <div class="post-user-icon"></div>
-    <div class="post-user-icon"></div>
+    <div class="comment-user-icon-reply">Reply</div>
+    <div class="comment-user-icon-show">Show Replies</div>
   </div>
 
   <%- include('./forms/replyForm.ejs', {comment: comment}); %>
-
-  <% if(comment.children){%>
-    <% comment.children.forEach((nestedComment)=>{%><%
-    renderComment(nestedComment) %> <%});%>
-    <%}%>
+  <div class="replies none">
+    <% if(comment.children){%>
+      <% comment.children.forEach((nestedComment)=>{%><%
+      renderComment(nestedComment) %> <%});%>
+      <%}%>
+  </div>
   </div>
   <% };%>
 
@@ -36,17 +38,20 @@
         <h2 class="comment-text"><%=comment.text%></h2>
       </div>
   
-      <div class="post-interactions">
-        <div class="post-user-icon"></div>
-        <div class="post-user-icon"></div>
+      <div class="comment-interactions">
+        <div class="comment-user-icon"></div>
+        <div class="comment-user-icon-reply">Reply</div>
+        <div class="comment-user-icon-show">Show Replies</div>
       </div>
 
       <%- include('./forms/replyForm.ejs', {comment: comment}); %>
 
-      <% if(comment.children){%>
-      <% comment.children.forEach((nestedComment)=>{%><%
-      renderComment(nestedComment) %> <%});%>
-      <%}%>
+      <div class="replies none">
+        <% if(comment.children){%>
+          <% comment.children.forEach((nestedComment)=>{%><%
+          renderComment(nestedComment) %> <%});%>
+          <%}%>
+      </div>
     </div>
 
     <%}%>
@@ -54,3 +59,40 @@
   </div>
   </div>
 </div>
+
+
+<script>
+  document.querySelectorAll('.comment-user-icon-reply').forEach((element) => {
+    element.addEventListener('click', (event) => {
+      if (element.textContent === 'Reply') {
+        element.textContent = 'Cancel';
+      } else {
+        element.textContent = 'Reply';
+      }
+      const commentId = event.target.parentElement.parentElement.id;
+      const comment = document.getElementById(commentId);
+      const form = comment.querySelector('.form-reply');
+      form.classList.toggle('none');
+    });
+  });
+
+  document.querySelectorAll('.comment-user-icon-show').forEach((element) => {
+    <!-- Check replies count -->
+    if(element.parentElement.parentElement.querySelector('.replies').children.length === 0){
+      element.style.display = 'none';
+    }
+
+    element.addEventListener('click', (event) => {
+      if (element.textContent === 'Show Replies') {
+        element.textContent = 'Hide Replies';
+      } else {
+        element.textContent = 'Show Replies';
+      }
+      const commentId = event.target.parentElement.parentElement.id;
+      const comment = document.getElementById(commentId);
+      const replies = comment.querySelector('.replies');
+      replies.classList.toggle('none');
+    });
+  });
+
+</script>

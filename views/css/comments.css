@@ -8,6 +8,9 @@
 .comment {
     padding: 16px;
     width: 680px;
+    /* border-left: 4px solid rgb(221, 131, 131); */
+    /* border-left: 4px dashed rgb(221, 131, 131); */
+    border-left: 4px double rgb(221, 131, 131);
 }
 
 .comments>a {
@@ -40,6 +43,8 @@
     margin-right: 16px;
 }
 
+
+
 .comment-title {
     font-family: "Josefin Sans", sans-serif;
     margin-bottom: 8px;
@@ -51,6 +56,36 @@
     font-family: "Montserrat", sans-serif;
     font-weight: 450;
 }
+
+.comment-interactions {
+    display: flex;
+    align-items: center;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: small;
+    color: black;
+    margin-bottom: 8px;
+}
+
+.comment-user-icon-reply {
+    margin-right: 16px;
+}
+
+/* - Replies start -  */
+.replies {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+    margin-top: 24px;
+}
+
+/* - Replies end -  */
+
+/* - Form Reply start -*/
+.none {
+    display: none;
+}
+
+/* - Form Reply end -*/
 
 
 
