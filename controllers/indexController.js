@@ -28,6 +28,9 @@ const renderPosts = async (req, res) => {
       const hoursInMonth = 730;
       const hoursInYear = 8760;
 
+      console.log(createdTime);
+      console.log(nowTime);
+
       // In minutes
       if (timePassedinHour === 0) {
         formattedTimePassed = timePassedinMin;
