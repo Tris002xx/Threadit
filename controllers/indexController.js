@@ -2,10 +2,7 @@ const { User, Post } = require("../database/models");
 
 // Helpers
 const isAuthenticated = require("./helpers/isAuthenticated");
-const { findTimeDifference } = require("./helpers/findTimeDifference");
-const { convertTimeFormat } = require("./helpers/convertTimeFormat");
-const { currentTime } = require("./helpers/currentTime");
-const { hourConverter } = require("./helpers/hourConverter");
+const { timeAgo } = require("./helpers/timeAgo");
 
 const renderPosts = async (req, res) => {
   try {
@@ -16,58 +13,7 @@ const renderPosts = async (req, res) => {
     const posts = result.map((post) => post.toJSON());
 
     for (let post of posts) {
-      let formattedTimePassed = ``;
-      let unitTime = ``;
-      const createdTime = convertTimeFormat(`${post.createdAt}`);
-      const nowTime = currentTime();
-      const timePassed = findTimeDifference(createdTime, nowTime);
-      const timePassedinHour = parseInt(timePassed.split(":")[0]);
-      const timePassedinMin = parseInt(timePassed.split(":")[1]);
-      const hoursInDay = 24;
-      const hoursInWeek = 168;
-      const hoursInMonth = 730;
-      const hoursInYear = 8760;
-
-      console.log(createdTime);
-      console.log(nowTime);
-
-      // In minutes
-      if (timePassedinHour === 0) {
-        formattedTimePassed = timePassedinMin;
-        unitTime = formattedTimePassed === 1 ? "min" : "mins";
-      }
-
-      // In hours
-      if (timePassedinHour > 0) {
-        formattedTimePassed = timePassedinHour;
-        unitTime = formattedTimePassed === 1 ? "hr" : "hrs";
-      }
-
-      // In days
-      if (timePassedinHour >= hoursInDay) {
-        formattedTimePassed = hourConverter(timePassedinHour, hoursInDay);
-        unitTime = formattedTimePassed === 1 ? "day" : "days";
-      }
-
-      // In weeks
-      if (timePassedinHour >= hoursInWeek) {
-        formattedTimePassed = hourConverter(timePassedinHour, hoursInMonth);
-        unitTime = formattedTimePassed === 1 ? "week" : "weeks";
-      }
-
-      // In months
-      if (timePassedinHour >= hoursInMonth) {
-        formattedTimePassed = hourConverter(timePassedinHour, hoursInMonth);
-        unitTime = formattedTimePassed === 1 ? "month" : "months";
-      }
-
-      // In years
-      if (timePassedinHour >= hoursInYear) {
-        formattedTimePassed = hourConverter(timePassedinHour, hoursInYear);
-        unitTime = formattedTimePassed === 1 ? "year" : "years";
-      }
-
-      post.createdAt = `${formattedTimePassed} ${unitTime}`;
+      post.createdAt = timeAgo(post.createdAt);
     }
 
     if (isAuthenticated(req)) {
