@@ -10,13 +10,12 @@
   </div>
 
   <div class="comment-interactions">
-    <div class="post-user-icon"></div>
     <div class="comment-user-icon-reply">Reply</div>
-    <div class="comment-user-icon-show">Show Replies</div>
+    <div class="comment-user-icon-show">Hide Replies</div>
   </div>
 
   <%- include('./forms/replyForm.ejs', {comment: comment}); %>
-  <div class="replies none">
+  <div class="replies">
     <% if(comment.children){%>
       <% comment.children.forEach((nestedComment)=>{%><%
       renderComment(nestedComment) %> <%});%>
@@ -39,14 +38,13 @@
       </div>
   
       <div class="comment-interactions">
-        <div class="comment-user-icon"></div>
         <div class="comment-user-icon-reply">Reply</div>
-        <div class="comment-user-icon-show">Show Replies</div>
+        <div class="comment-user-icon-show">Hide Replies</div>
       </div>
 
       <%- include('./forms/replyForm.ejs', {comment: comment}); %>
 
-      <div class="replies none">
+      <div class="replies">
         <% if(comment.children){%>
           <% comment.children.forEach((nestedComment)=>{%><%
           renderComment(nestedComment) %> <%});%>
@@ -94,5 +92,20 @@
       replies.classList.toggle('none');
     });
   });
+  
+  const elementId = "<%=replied%>";
+  if(elementId){
+    const element = document.getElementById(elementId);
+    const offset = 100; // Adjust the offset as needed
+    const bodyRect = document.body.getBoundingClientRect().top;
+    const elementRect = element.getBoundingClientRect().top;
+    const elementPosition = elementRect - bodyRect;
+    const offsetPosition = elementPosition - offset;
+
+    window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+    });
+  }
 
 </script>

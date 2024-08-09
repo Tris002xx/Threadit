@@ -1,13 +1,16 @@
+/* Header Styles */
 .header {
+    margin-top: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    /* background-color: #333; */
-    background: #685454;
-    color: white;
+    background: #f2f2f2;
+    color: #685454;
     position: sticky;
     top: 0;
+    border-radius: 80px;
+    box-shadow: 5px 5px 11px 9px rgba(0, 0, 0, 0.1);
 }
 
 .threadit-logo {
@@ -15,18 +18,29 @@
     align-items: center;
 }
 
+.header-title {
+    margin: 0;
+}
+
 .header-icons {
     display: flex;
     align-items: center;
+    justify-content: space-around;
 }
 
 .header-icon {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
+    margin-right: 48px;
     border-radius: 20px;
-    /* background-color: red; */
-    background: #ea8a8a;
+}
+
+.selected {
+    margin-top: 18px;
+}
+
+.header-link {
+    text-decoration: none;
+    color: #685454;
+    font-size: 20px;
 }
 
 .header-search {
@@ -34,12 +48,20 @@
     margin-right: 16px;
 }
 
+.header-selector {
+    margin-top: 12px;
+    background-color: #685454;
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+}
+
 .header-burger {
     display: none;
 }
 
+/* Media Queries */
 @media screen and (max-width: 768px) {
-
     .header-search,
     .header-icons {
         display: none;
@@ -53,7 +75,6 @@
 
     .header-icon {
         margin: 8px;
-
     }
 
     .header-title {
@@ -68,5 +89,4 @@
         /* background-color: red; */
         background: #ea8a8a;
     }
-
 }

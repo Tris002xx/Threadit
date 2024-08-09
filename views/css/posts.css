@@ -6,9 +6,12 @@
 }
 
 .post {
-    padding: 16px;
-    width: 680px;
-    border-bottom: 4px #685454 solid;
+    margin-top: 28px;
+    background-color: #f2f2f2;
+    padding: 28px;
+    width: 100%;
+    border-radius: 32px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .posts>a {
@@ -17,7 +20,7 @@
 }
 
 .post:hover {
-    background-color: rgb(199, 172, 172);
+    /* background-color: rgb(199, 172, 172); */
     cursor: pointer;
 }
 
@@ -25,9 +28,6 @@
     display: flex;
     align-items: center;
     padding-top: 8px;
-    font-family: "Josefin Sans", sans-serif;
-    font-size: small;
-    color: black;
     text-decoration: none;
     margin-bottom: 8px;
 }
@@ -36,26 +36,40 @@
     display: inline-block;
     width: 16px;
     height: 16px;
-    border-radius: 8px;
-    background-color: rgb(221, 131, 131);
 }
 
 .post-user-icon,
 .post-user-name,
 .post-time {
-    margin-right: 16px;
+    margin-right: 44px;
 }
 
 .post-title {
-    font-family: "Josefin Sans", sans-serif;
     margin-bottom: 8px;
+    font-size: 32px;
+    width: 100%;
+    overflow-wrap: break-word;
+    /* or word-wrap: break-word; */
 }
 
 .post-text {
-    font-size: large;
+    font-size: 20px;
     margin-bottom: 8px;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 450;
+    font-weight: 500;
+    width: 100%;
+    overflow-wrap: break-word;
+    /* or word-wrap: break-word; */
+}
+
+.post-interactions {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.post-link {
+    display: inline-block;
+    width: 800px;
 }
 
 

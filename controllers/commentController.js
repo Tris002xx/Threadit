@@ -7,10 +7,13 @@ const createReply = async (req, res) => {
   try {
     const commentID = req.params.commentID;
     const { newComment } = req.body;
+
     const resultComment = await Comment.findByPk(commentID);
     const comment = resultComment.toJSON();
     const postID = comment.postId;
-
+    if (!newComment) {
+      return res.redirect(`/api/post/${postID}`);
+    }
     if (!isAuthenticated(req)) {
       console.log("Not logged in");
       return res.redirect("/login");
@@ -22,10 +25,10 @@ const createReply = async (req, res) => {
         parentId: commentID,
       };
       // Create comment instance
-      await Comment.create(commentToAdd);
+      const addedComment = await Comment.create(commentToAdd);
       console.log("Logged In");
+      return res.redirect(`/api/post/${postID}?replied=${addedComment.id}`);
     }
-    return res.redirect(`/api/post/${postID}`);
   } catch (error) {
     console.error(error);
     return res.status(500).send("Internal Server Error");

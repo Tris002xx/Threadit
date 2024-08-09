@@ -1,4 +1,4 @@
-const timeAgo = (then) => {
+const timeAgo = async (then) => {
   const now = new Date();
   const seconds = Math.floor((now - then) / 1000);
   const minutes = Math.floor(seconds / 60);
@@ -18,8 +18,12 @@ const timeAgo = (then) => {
     { amount: years, unit: "years" },
   ];
 
+  if (seconds === 0) {
+    return `posted now`;
+  }
+
   for (const item of timeOptions) {
-    time = Infinity;
+    let time = Infinity;
     if (item.amount <= time && item.amount !== 0) {
       time = item.amount;
       output = item;
@@ -30,7 +34,7 @@ const timeAgo = (then) => {
     output.unit = output.unit.slice(0, -1);
   }
 
-  return `${output.amount} ${output.unit}`;
+  return `${output.amount} ${output.unit} ago`;
 };
 
 module.exports = { timeAgo };

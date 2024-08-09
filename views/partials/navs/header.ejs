@@ -1,22 +1,38 @@
 <nav class="header">
   <!-- threadit logo -->
   <div class="threadit-logo">
-    <div class="header-icon"></div>
-    <h1 class="header-title"><a href="/">threadit</a></h1>
+    <h1 class="header-title puppies-play-regular">
+      <a href="/">Threadit</a>
+    </h1>
   </div>
 
   <!-- Search bar -->
-  <input type="text" class="header-search" id="header-search" />
+  <!-- <input type="text" class="header-search" id="header-search" /> -->
 
   <!--Right Icons  -->
   <div class="header-icons" id="header-icons">
     <% if (user) {%>
-    <div class="header-icon"><a href="/create">Create</a></div>
-    <div class="header-icon"><%=user.username%></div>
-    <div class="header-icon"><a href="/login/logout">Log Out</a></div>
+    <div class="header-icon">
+      <a href="/create" class="header-link pt-sans-caption-regular">Create</a>
+    </div>
+    <div class="header-icon">
+      <a href="/" class="header-link pt-sans-caption-regular">
+        <%=user.username%>
+      </a>
+    </div>
+    <div class="header-icon">
+      <a href="/login/logout" class="header-link pt-sans-caption-regular"
+      >Log Out</a
+      >
+      <div class="header-selector"></div>
+    </div>
     <%};%> <% if (!user) {%>
-    <div class="header-icon"><a href="/login">Log In</a></div>
-    <div class="header-icon"><a href="/signup">Sign Up</a></div>
+    <div class="header-icon">
+      <a href="/login" class="header-link pt-sans-caption-regular">Log In</a>
+    </div>
+    <div class="header-icon">
+      <a href="/signup" class="header-link pt-sans-caption-regular">Sign Up</a>
+    </div>
     <%};%>
   </div>
 
@@ -30,4 +46,9 @@
     rightIcons.classList.toggle("show");
     searchBar.classList.toggle("show");
   };
+  document.querySelectorAll(".header-icon").forEach((link) => {
+    if (link.children.length > 1) {
+      link.classList.add("selected");
+    }
+  });
 </script>

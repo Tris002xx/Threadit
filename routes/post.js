@@ -5,7 +5,7 @@ const router = express.Router();
 const { renderPost, addComment } = require("../controllers/postController");
 
 // Routes
-router.get("/:postID", renderPost);
+router.get("/:postID/", renderPost);
 
 // Adding comment to post
 router.post("/:postID", addComment);

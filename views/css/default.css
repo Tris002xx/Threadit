@@ -1,13 +1,14 @@
 body {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
-    background: #f2f2f2;
+    background: #685454;
+    width: 70%;
 }
 
 a,
 a:visited {
     text-decoration: none;
-    color: white;
+    color: #685454;
 }
 
 p,
@@ -30,4 +31,60 @@ h2 {
 
 .fourth-color {
     background: #685454;
+}
+
+.pt-sans-regular {
+    font-family: "PT Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+        color: #685454;
+
+}
+
+.pt-sans-bold {
+    font-family: "PT Sans", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.pt-sans-regular-italic {
+    font-family: "PT Sans", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.pt-sans-bold-italic {
+    font-family: "PT Sans", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+
+.pt-sans-caption-regular {
+    font-family: "PT Sans Caption", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #685454;
+
+}
+
+.pt-sans-caption-bold {
+    font-family: "PT Sans Caption", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #685454;
+
+}
+
+
+.puppies-play-regular {
+    font-family: "Puppies Play", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 64px;
+    text-shadow: 0px 4px 4px #fff, 0 -1 0 #000, 0px 4px 4px #fff;
+    font-size: 6rem;
+    margin-bottom: 1rem;
+    text-align: center;
+
 }

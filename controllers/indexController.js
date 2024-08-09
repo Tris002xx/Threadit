@@ -13,8 +13,10 @@ const renderPosts = async (req, res) => {
     const posts = result.map((post) => post.toJSON());
 
     for (let post of posts) {
-      post.createdAt = timeAgo(post.createdAt);
+      console.log(post.createdAt);
+      post.createdAt = await timeAgo(post.createdAt);
     }
+    console.log(posts);
 
     if (isAuthenticated(req)) {
       console.log("Logged In");
