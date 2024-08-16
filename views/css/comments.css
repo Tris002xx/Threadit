@@ -1,3 +1,28 @@
+.comment-box {
+    border: none;
+    display: block;
+    width: 95%;
+    overflow: hidden;
+    margin-top: 16px;
+    border-radius: 20px;
+    min-height: 40px;
+    line-height: 20px;
+    padding: 16px;
+
+}
+
+.comment-box-button {
+    width: 12%;
+    margin-top: 16px;
+    border-radius: 20px;
+    padding: 4px;
+    background-color: #685454;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
 .comments {
     margin-top: 20px;
     display: flex;
@@ -72,23 +97,50 @@
     display: none;
 }
 
-@media screen and (max-width: 768px) {
-
-    .comments,
-    .comment-user {
-        flex-direction: column;
+@media screen and (max-width: 1258px) {
+    .comment {
+        overflow-wrap: break-word;
+        width: inherit;
+        padding: 4px;
+        border-left: 2px solid #685454;
     }
 
-    .comment {
-        padding: 8px;
-        width: 280px;
+    .comment-box {
+        border: none;
+        font-size: 6px;
+        display: block;
+        width: 80%;
+        overflow: hidden;
+        margin-top: 16px;
+        border-radius: 20px;
+        min-height: 40px;
+        line-height: 20px;
+        padding: 0px;
+        padding-left: 10%;
+        padding-right: 10%;
+    
+    }
+    
+    .comment-box-button {
+        font-size: xx-small;
+        width: 100%;
+        margin-top: 16px;
+        border-radius: 20px;
+        padding: 4px;
+        background-color: #685454;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .comment-form {
+        width: 100%;
+        align-items: center;
     }
 
     .comment-user {
         padding-top: 4px;
-        font-family: "Josefin Sans", sans-serif;
         font-size: xx-small;
-        color: black;
         margin-bottom: 4px;
     }
 
@@ -115,4 +167,18 @@
         font-family: "Montserrat", sans-serif;
         font-weight: 450;
     }
+
+    .comment-interactions {
+        font-size: xx-small;
+        margin-bottom: 4px;
+    }
+    .replies {
+        margin-left: 2px;
+        margin-top: 8px;
+        overflow-wrap: break-word;
+        
+    }
+
+
+
 }

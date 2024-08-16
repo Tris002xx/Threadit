@@ -61,32 +61,70 @@
 }
 
 /* Media Queries */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1258px) {
+    .header {
+        flex-direction: column;
+        align-items: normal;
+        border-radius: 20px;
+    }
+
     .header-search,
     .header-icons {
         display: none;
     }
 
-    .header-burger,
     .header-search.show,
     .header-icons.show {
         display: block;
+        border: 0;
     }
 
     .header-icon {
         margin: 8px;
+        text-align: center;
+    }
+
+
+    .header-link {
+        cursor: pointer;
+        font-size: 10px;
+    }
+
+    .header-link:hover {
+        padding: 4px;
+        border-radius: 10px;
+        background-color: #685454;
+        color: #f2f2f2;
     }
 
     .header-title {
-        font-size: x-small;
+        font-size: 20px;
     }
 
     .header-icon {
-        width: 20px;
-        height: 20px;
         margin-right: 5px;
         border-radius: 10px;
-        /* background-color: red; */
-        background: #ea8a8a;
+    }
+
+    .threadit-logo {
+        align-self: center;
+    }
+
+    .selected {
+        margin-top: 0;
+    }
+
+    .header-burger {
+        display: block;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+        border: 0;
+        cursor: pointer;
+
+    }
+
+    .header-selector {
+        display: none;
     }
 }

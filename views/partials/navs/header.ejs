@@ -22,7 +22,7 @@
     </div>
     <div class="header-icon">
       <a href="/login/logout" class="header-link pt-sans-caption-regular"
-      >Log Out</a
+        >Log Out</a
       >
       <div class="header-selector"></div>
     </div>
@@ -36,13 +36,18 @@
     <%};%>
   </div>
 
-  <button class="header-burger" onclick="toggleBurger()"></button>
+  <button class="header-burger" onclick="toggleBurger()">
+    <img src="../../assets/icons/burger-menu-svgrepo-com.svg" alt="hamburger icon" height="10px" width="100%" style="color: #685454;" />
+  </button>
 </nav>
 
 <script>
   const toggleBurger = () => {
     const rightIcons = document.getElementById("header-icons");
     const searchBar = document.getElementById("header-search");
+    document
+      .getElementsByClassName("threadit-logo")[0]
+      .classList.toggle("show");
     rightIcons.classList.toggle("show");
     searchBar.classList.toggle("show");
   };

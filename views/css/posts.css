@@ -69,44 +69,49 @@
 
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1258px) {
+    .post-link {
+        width: 100%;
+    }
+
     .posts {
         display: flex;
         flex-direction: column;
-        width: 100%;
-        margin-left: 8px;
+        justify-content: center;
+        margin-left: 0px;
+    }
+
+    .post-user-icon {
+        margin-right: 24px;
+    }
+
+    .post-user-name,
+    .post-time {
+        margin-right: 8px;
     }
 
     .post {
+        justify-self: center;
+        margin-top: 16px;
         padding: 8px;
-        width: 280px;
+        padding-left: 4%;
+        padding-right: 4%;
+        border-radius: 16px;
         border-bottom: 4px #685454 solid;
+        width: 92%;
     }
 
     .post-user {
         display: flex;
+        justify-content: space-between;
         align-items: center;
         padding-top: 4px;
-        font-family: "Josefin Sans", sans-serif;
         font-size: xx-small;
         color: black;
         text-decoration: none;
         margin-bottom: 4px;
     }
 
-    .post-user-icon {
-        display: inline-block;
-        width: 8px;
-        height: 8px;
-        border-radius: 4px;
-        background-color: rgb(221, 131, 131);
-    }
-
-    .post-user-icon,
-    .post-user-name,
-    .post-time {
-        margin-right: 8px;
-    }
 
 
     .post-title {

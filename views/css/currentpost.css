@@ -6,25 +6,11 @@
     margin-left: 16px;
 }
 
-.comment-box {
-    display: block;
-    width: 95%;
-    overflow: hidden;
-    margin-top: 16px;
-    border-radius: 20px;
-    min-height: 40px;
-    line-height: 20px;
-    padding: 16px;
-
-}
-
-.comment-box-button {
-    width: 12%;
-    margin-top: 16px;
-    border-radius: 20px;
-    padding: 4px;
-    background-color: #685454;
-    color: white;
-    border: none;
-    cursor: pointer;
+@media screen and (max-width: 1258px) {
+    .posts {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 0px;
+    }
 }

@@ -43,3 +43,28 @@
     border-radius: 4px;
     cursor: pointer;
 }
+
+@media screen and (max-width: 1258px) {
+    .signin-form {
+        gap: 8px;
+        padding: 8px;
+        width: 60%;
+    }
+
+    .signin-heading {
+        font-size: 16px;
+    }
+
+    .signin-subheading {
+        font-size: 1.2rem;
+    }
+
+    .signin-input {
+        margin-bottom: 8px;
+        padding: 4px;
+    }
+
+    .signin-button {
+        padding: 4px;
+    }
+}
