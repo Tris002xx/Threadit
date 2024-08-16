@@ -2,15 +2,12 @@
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-
 }
 
 .comment {
     padding: 16px;
-    width: 680px;
-    /* border-left: 4px solid rgb(221, 131, 131); */
-    /* border-left: 4px dashed rgb(221, 131, 131); */
     border-left: 4px solid #685454;
+    height: fit-content;
 }
 
 .comments>a {
@@ -22,9 +19,7 @@
     display: flex;
     align-items: center;
     padding-top: 8px;
-    font-family: "Josefin Sans", sans-serif;
     font-size: small;
-    color: black;
     text-decoration: none;
     margin-bottom: 8px;
 }
@@ -43,26 +38,16 @@
     margin-right: 16px;
 }
 
-
-
-.comment-title {
-    font-family: "Josefin Sans", sans-serif;
-    margin-bottom: 8px;
-}
-
 .comment-text {
     font-size: large;
     margin-bottom: 8px;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 450;
+    overflow-wrap: break-word;
 }
 
 .comment-interactions {
     display: flex;
     align-items: center;
-    font-family: "Josefin Sans", sans-serif;
     font-size: small;
-    color: black;
     margin-bottom: 8px;
 }
 
@@ -70,7 +55,12 @@
     margin-right: 16px;
 }
 
-/* - Replies start -  */
+.comment-user-icon-reply:hover,
+.comment-user-icon-show:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
 .replies {
     display: flex;
     flex-direction: column;
@@ -78,20 +68,14 @@
     margin-top: 24px;
 }
 
-/* - Replies end -  */
-
-/* - Form Reply start -*/
 .none {
     display: none;
 }
 
-/* - Form Reply end -*/
-
-
-
 @media screen and (max-width: 768px) {
-    .comments {
-        display: flex;
+
+    .comments,
+    .comment-user {
         flex-direction: column;
     }
 
@@ -101,30 +85,23 @@
     }
 
     .comment-user {
-        display: flex;
-        align-items: center;
         padding-top: 4px;
         font-family: "Josefin Sans", sans-serif;
         font-size: xx-small;
         color: black;
-        text-decoration: none;
         margin-bottom: 4px;
     }
 
     .comment-user-icon {
-        display: inline-block;
         width: 8px;
         height: 8px;
         border-radius: 4px;
-        background-color: rgb(221, 131, 131);
     }
 
-    .comment-user-icon,
     .comment-user-name,
     .comment-time {
         margin-right: 8px;
     }
-
 
     .comment-title {
         font-size: x-small;

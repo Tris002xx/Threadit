@@ -1,15 +1,15 @@
 <% function renderComment(comment) {%>
 <div class="comment" id="<%=comment.id%>">
-  <div class="comment-user">
+  <div class="comment-user pt-sans-caption-regular">
     <div class="comment-user-name">@ <%=comment.user && comment.user.username%></div>
     <div class="comment-user-name"> <%=comment.createdAt%></div>
   </div>
 
   <div class="comment-content">
-    <h2 class="comment-text"><%=comment.text%></h2>
+    <h2 class="comment-text pt-sans-caption-bold"><%=comment.text%></h2>
   </div>
 
-  <div class="comment-interactions">
+  <div class="comment-interactions pt-sans-caption-regular">
     <div class="comment-user-icon-reply">Reply</div>
     <div class="comment-user-icon-show <%=comment.children && comment.children.length%>">Hide replies</div>
   </div>
@@ -28,16 +28,16 @@
     <% comments.forEach((comment)=>{%>
       <% if(!comment.parentId){%> 
     <div class="comment" id="<%=comment.id%>">
-      <div class="comment-user">
+      <div class="comment-user pt-sans-caption-regular">
         <div class="comment-user-name">@ <%=comment.user && comment.user.username%></div>
         <div class="comment-user-name"> <%=comment.createdAt%></div>
       </div>
   
       <div class="comment-content">
-        <h2 class="comment-text"><%=comment.text%></h2>
+        <h2 class="comment-text pt-sans-caption-bold"><%=comment.text%></h2>
       </div>
   
-      <div class="comment-interactions">
+      <div class="comment-interactions pt-sans-caption-regular">
         <div class="comment-user-icon-reply">Reply</div>
         <div class="comment-user-icon-show <%=comment.children && comment.children.length%>">Hide replies</div>
       </div>
