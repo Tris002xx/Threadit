@@ -3,6 +3,7 @@ const { User, Post, Comment } = require("../database/models");
 // Helpers
 const isAuthenticated = require("./helpers/isAuthenticated");
 const { convertDateFormat } = require("./helpers/convertDateFormat");
+const { timeAgo } = require("./helpers/timeAgo");
 
 const renderPost = async (req, res) => {
   try {
@@ -27,10 +28,27 @@ const renderPost = async (req, res) => {
       ],
       order: [["createdAt", "DESC"]],
     });
+
     const posts = resultPost.map((post) => post.toJSON());
     const comments = resultComments.map((comment) => comment.toJSON());
     for (let post of posts) {
       post.createdAt = convertDateFormat(post.createdAt);
+    }
+
+    const processComments = async (comments) => {
+      for (let comment of comments) {
+        comment.dataValues.createdAt = await timeAgo(comment.createdAt);
+        if (comment.children) {
+          await processComments(comment.children);
+        }
+      }
+    };
+
+    for (let comment of comments) {
+      comment.createdAt = await timeAgo(comment.createdAt);
+      if (comment.children) {
+        await processComments(comment.children);
+      }
     }
 
     if (isAuthenticated(req)) {
@@ -61,7 +79,7 @@ const addComment = async (req, res) => {
     const postId = req.params.postID;
     const { newComment } = req.body;
     if (!newComment) {
-      return res.redirect(`/api/post/${postId}`)
+      return res.redirect(`/api/post/${postId}`);
     }
 
     // Can't comment if logged in!

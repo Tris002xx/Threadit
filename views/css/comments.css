@@ -10,7 +10,7 @@
     width: 680px;
     /* border-left: 4px solid rgb(221, 131, 131); */
     /* border-left: 4px dashed rgb(221, 131, 131); */
-    border-left: 4px double rgb(221, 131, 131);
+    border-left: 4px solid #685454;
 }
 
 .comments>a {

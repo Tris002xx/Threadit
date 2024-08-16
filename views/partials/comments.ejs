@@ -1,8 +1,8 @@
 <% function renderComment(comment) {%>
 <div class="comment" id="<%=comment.id%>">
   <div class="comment-user">
-    <div class="comment-user-icon"></div>
     <div class="comment-user-name">@ <%=comment.user && comment.user.username%></div>
+    <div class="comment-user-name"> <%=comment.createdAt%></div>
   </div>
 
   <div class="comment-content">
@@ -11,7 +11,7 @@
 
   <div class="comment-interactions">
     <div class="comment-user-icon-reply">Reply</div>
-    <div class="comment-user-icon-show">Hide Replies</div>
+    <div class="comment-user-icon-show <%=comment.children && comment.children.length%>">Hide replies</div>
   </div>
 
   <%- include('./forms/replyForm.ejs', {comment: comment}); %>
@@ -29,8 +29,8 @@
       <% if(!comment.parentId){%> 
     <div class="comment" id="<%=comment.id%>">
       <div class="comment-user">
-        <div class="comment-user-icon"></div>
         <div class="comment-user-name">@ <%=comment.user && comment.user.username%></div>
+        <div class="comment-user-name"> <%=comment.createdAt%></div>
       </div>
   
       <div class="comment-content">
@@ -39,7 +39,7 @@
   
       <div class="comment-interactions">
         <div class="comment-user-icon-reply">Reply</div>
-        <div class="comment-user-icon-show">Hide Replies</div>
+        <div class="comment-user-icon-show <%=comment.children && comment.children.length%>">Hide replies</div>
       </div>
 
       <%- include('./forms/replyForm.ejs', {comment: comment}); %>
@@ -81,10 +81,10 @@
     }
 
     element.addEventListener('click', (event) => {
-      if (element.textContent === 'Show Replies') {
+      if (element.textContent === `${element.classList[1]} Replies`) {
         element.textContent = 'Hide Replies';
       } else {
-        element.textContent = 'Show Replies';
+        element.textContent = `${element.classList[1]} Replies`;
       }
       const commentId = event.target.parentElement.parentElement.id;
       const comment = document.getElementById(commentId);

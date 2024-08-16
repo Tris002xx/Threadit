@@ -19,11 +19,6 @@
     color: black;
 }
 
-.post:hover {
-    /* background-color: rgb(199, 172, 172); */
-    cursor: pointer;
-}
-
 .post-user {
     display: flex;
     align-items: center;
