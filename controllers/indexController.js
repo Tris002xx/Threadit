@@ -1,4 +1,4 @@
-const { User, Post } = require("../database/models");
+const { User, Post, Upvote, Downvote } = require("../database/models");
 
 // Helpers
 const isAuthenticated = require("./helpers/isAuthenticated");
@@ -7,13 +7,12 @@ const { timeAgo } = require("./helpers/timeAgo");
 const renderPosts = async (req, res) => {
   try {
     const result = await Post.findAll({
-      include: User,
+      include: [User, "upvotes", "downvotes"],
       order: [["createdAt", "DESC"]],
     });
     const posts = result.map((post) => post.toJSON());
 
     for (let post of posts) {
-      console.log(post.createdAt);
       post.createdAt = await timeAgo(post.createdAt);
     }
     console.log(posts);

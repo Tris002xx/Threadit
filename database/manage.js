@@ -1,4 +1,4 @@
-const { User, Post, Comment } = require("./models");
+const { User, Post, Comment, Upvote, Downvote } = require("./models");
 const { sequelize } = require("./db");
 const bcrypt = require("bcrypt");
 
@@ -8,6 +8,8 @@ const createInstances = async () => {
     await sequelize.sync({ force: true });
     console.log("Database reset and models created");
 
+
+    // Users
     const tristan = await User.create({
       username: "tris002xx",
       password: await bcrypt.hash("Password", 15),
@@ -21,11 +23,31 @@ const createInstances = async () => {
       email: "john12@gmail.com",
     });
 
+
+
+    // Posts
     const firstPost = await Post.create({
       title: "Nested Comments here!",
       text: "Check and see if comments are nesting below!",
       userId: tristan.id,
     });
+    const secondPost = await Post.create({
+      title: "Where are the washrooms at Metrotown?",
+      text: "Can someone please help me find the washrooms at metro?",
+      userId: tristan.id,
+    });
+
+    // Upvotes and Downvotes
+    const firstUpvote = await Upvote.create({
+      userId: tristan.id,
+      postId: firstPost.id
+
+    })
+    const firstDownvote = await Downvote.create({
+      userId: tristan.id,
+      postId: firstPost.id
+    })
+
 
     // Nested Comment Examples
     // const firstComment = await Comment.create({
@@ -67,11 +89,6 @@ const createInstances = async () => {
     //   userId: tristan.id,
     // });
 
-    const secondPost = await Post.create({
-      title: "Where are the washrooms at Metrotown?",
-      text: "Can someone please help me find the washrooms at metro?",
-      userId: tristan.id,
-    });
   } catch (error) {
     console.error("Error creating instances:", error);
   }

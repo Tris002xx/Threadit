@@ -21,14 +21,40 @@ const Post = sequelize.define("post", {
   text: DataTypes.TEXT,
 });
 
+const Upvote = sequelize.define("upvote", {
+});
+const Downvote = sequelize.define("downvote", {
+});
+
+
+
 // Associations
-User.hasMany(Post, { as: "posts" }); // User has many Posts
-Post.belongsTo(User); // Post belongs to a User
+User.hasMany(Post, { as: "posts" });
+Post.belongsTo(User);
 
-Post.hasMany(Comment, { as: "comments" }); // Post has many comments
-Comment.belongsTo(Post); // Comment belongs to a Post
+Post.hasMany(Comment, { as: "comments" });
+Comment.belongsTo(Post);
 
-User.hasMany(Comment, { as: "comments" }); // User has many comments
-Comment.belongsTo(User); // Comment belongs to a User
+User.hasMany(Comment, { as: "comments" });
+Comment.belongsTo(User);
 
-module.exports = { User, Post, Comment };
+User.hasMany(Upvote, { as: "upvotes" });
+Upvote.belongsTo(User);
+
+User.hasMany(Downvote, { as: "downvotes" });
+Downvote.belongsTo(User);
+
+Post.hasMany(Upvote, { as: "upvotes" });
+Upvote.belongsTo(Post);
+
+Post.hasMany(Downvote, { as: "downvotes" });
+Downvote.belongsTo(Post);
+
+Comment.hasMany(Upvote, { as: "upvotes" });
+Upvote.belongsTo(Comment);
+
+Comment.hasMany(Downvote, { as: "downvotes" });
+Downvote.belongsTo(Comment);
+
+
+module.exports = { User, Post, Comment, Upvote, Downvote };

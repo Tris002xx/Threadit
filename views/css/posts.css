@@ -8,8 +8,11 @@
 .post {
     margin-top: 28px;
     background-color: #f2f2f2;
-    padding: 28px;
-    width: 100%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 96%;
     border-radius: 32px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
@@ -27,16 +30,22 @@
     margin-bottom: 8px;
 }
 
-.post-user-icon {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-}
 
-.post-user-icon,
 .post-user-name,
 .post-time {
     margin-right: 44px;
+}
+
+.post-user-icon {
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.post-upvotes,
+.post-downvotes {
+    display: inline-block;
+    margin-right: 8px;
+    font-size: large;
 }
 
 .post-title {
@@ -67,6 +76,21 @@
     width: 800px;
 }
 
+.default {
+    opacity: 0.5;
+}
+
+.default:hover {
+    cursor: pointer;
+}
+
+.clicked {
+    opacity: 1;
+}
+
+.clicked:hover {
+    cursor: pointer;
+}
 
 
 @media screen and (max-width: 1258px) {
