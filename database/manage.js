@@ -8,7 +8,6 @@ const createInstances = async () => {
     await sequelize.sync({ force: true });
     console.log("Database reset and models created");
 
-
     // Users
     const tristan = await User.create({
       username: "tris002xx",
@@ -22,8 +21,6 @@ const createInstances = async () => {
       name: "John Doe",
       email: "john12@gmail.com",
     });
-
-
 
     // Posts
     const firstPost = await Post.create({
@@ -40,14 +37,8 @@ const createInstances = async () => {
     // Upvotes and Downvotes
     const firstUpvote = await Upvote.create({
       userId: tristan.id,
-      postId: firstPost.id
-
-    })
-    const firstDownvote = await Downvote.create({
-      userId: tristan.id,
-      postId: firstPost.id
-    })
-
+      postId: firstPost.id,
+    });
 
     // Nested Comment Examples
     // const firstComment = await Comment.create({
@@ -88,7 +79,6 @@ const createInstances = async () => {
     //   postId: firstPost.id,
     //   userId: tristan.id,
     // });
-
   } catch (error) {
     console.error("Error creating instances:", error);
   }
