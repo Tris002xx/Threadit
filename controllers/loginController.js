@@ -6,10 +6,8 @@ const isAuthenticated = require("./helpers/isAuthenticated");
 const renderLogin = (req, res) => {
   if (isAuthenticated(req)) {
     res.redirect("/");
-    console.log("Logged In");
   } else {
     res.render("pages/login", { user: false });
-    console.log("Not logged in");
   }
 };
 

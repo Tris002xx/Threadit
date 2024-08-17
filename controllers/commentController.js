@@ -15,7 +15,6 @@ const createReply = async (req, res) => {
       return res.redirect(`/api/post/${postID}`);
     }
     if (!isAuthenticated(req)) {
-      console.log("Not logged in");
       return res.redirect("/login");
     } else if (newComment.trim().length !== 0) {
       const commentToAdd = {
@@ -26,7 +25,6 @@ const createReply = async (req, res) => {
       };
       // Create comment instance
       const addedComment = await Comment.create(commentToAdd);
-      console.log("Logged In");
       return res.redirect(`/api/post/${postID}?replied=${addedComment.id}`);
     }
   } catch (error) {

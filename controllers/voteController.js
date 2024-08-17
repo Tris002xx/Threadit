@@ -6,9 +6,7 @@ const isAuthenticated = require("./helpers/isAuthenticated")
 
 const createVote = async (req, res) => {
     try {
-        console.log("I am here")
         if (isAuthenticated(req)) {
-            console.log("I am running here")
             const userID = req.user.id;
             const postID = req.params.postId;
             const { vote } = req.body;
@@ -29,7 +27,6 @@ const createVote = async (req, res) => {
 
             return res.redirect("/");
         } else {
-            console.log("Not logged in");
             return res.redirect("/");
         }
 
@@ -42,10 +39,8 @@ const createVote = async (req, res) => {
 }
 
 const deleteVote = async (req, res) => {
-    console.log("I am here right now")
     try {
         if (isAuthenticated(req)) {
-            console.log("I am running here")
             const userID = req.user.id;
             const postID = req.params.postId;
             const { vote } = req.body;
@@ -67,12 +62,10 @@ const deleteVote = async (req, res) => {
                 })
             }
             for (let voted of result) {
-                console.log(voted)
                 voted.destroy()
             }
             return res.redirect("/");
         } else {
-            console.log("Not logged in");
             return res.redirect("/");
         }
 
